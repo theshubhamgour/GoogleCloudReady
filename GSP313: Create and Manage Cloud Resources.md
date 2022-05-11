@@ -100,5 +100,21 @@ gcloud compute forwarding-rules create permit-tcp-rule-261 \
 ```
 gcloud compute forwarding-rules list
 ```
+```
+gcloud compute frontend-services create web-server-frontend \
+       --protocol HTTP \
+       --http-health-checks http-basic-check \
+       --global
+```
+```
+gcloud compute frontend-services add-frontend web-server-frontend \
+       --instance-group web-server-group \
+       --instance-group-region us-east1 \
+       --global
+```
+```
+gcloud compute url-maps create web-server-map \
+       --default-service web-server-frontend
+```
 
 (Note: After running all the commands it can take upto 2-3 minutes to update the score for task 3) Congratulations, you're all done with the lab 😄
