@@ -8,11 +8,10 @@ Go to Compute Engine and start Bastion instance.
 
 # Task 3 : Create a firewall rule that allows SSH (tcp/22) from the IAP service and add network tag on bastion
 Replace the "[NETWORK TAG]" with the network tag provided in the lab.
-``
+```
 gcloud compute firewall-rules create ssh-ingress --allow=tcp:22 --source-ranges 35.235.240.0/20 --target-tags [NETWORK TAG-1] --network acme-vpc
-```
-```
 gcloud compute instances add-tags bastion --tags=[NETWORK TAG-1] --zone=us-central1-b
+```
 ```
 ```
 # Task 4 : Create a firewall rule that allows traffic on HTTP (tcp/80) to any address and add network tag on juice-shop
